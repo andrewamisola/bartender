@@ -198,28 +198,31 @@ function showToast(message) {
 // Theme
 const theme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', theme);
-themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
 
-themeToggle.onclick = () => {
-  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-  themeToggle.textContent = t === 'dark' ? '☀️' : '🌙';
-};
+if (themeToggle) {
+  themeToggle.onclick = () => {
+    const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+    themeToggle.textContent = t === 'dark' ? '☀️' : '🌙';
+  };
+}
 
 // Kid mode (mocktails only + softer palette)
 const kidMode = localStorage.getItem('kidMode') === 'on';
 if (kidMode) {
   document.body.classList.add('kid-mode');
   kidToggle.classList.add('active');
-  kidToggle.textContent = '🧃 Kid Mode On';
+  if (kidToggle.querySelector('.btn-text')) kidToggle.querySelector('.btn-text').textContent = 'Kid Mode On';
 }
 
 kidToggle.onclick = () => {
   const isOn = document.body.classList.toggle('kid-mode');
   localStorage.setItem('kidMode', isOn ? 'on' : 'off');
   kidToggle.classList.toggle('active', isOn);
-  kidToggle.textContent = isOn ? '🧃 Kid Mode On' : '🧃 Kid Mode';
+  const label = isOn ? 'Kid Mode On' : 'Kid Mode';
+  if (kidToggle.querySelector('.btn-text')) kidToggle.querySelector('.btn-text').textContent = label;
   render();
 };
 
