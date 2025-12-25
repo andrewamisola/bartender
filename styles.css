@@ -611,13 +611,26 @@ body.kid-mode .tag {
 
   .header-btns {
     width: 100%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 44px;
+    grid-template-areas:
+      "surprise theme"
+      "kid kid";
     gap: 0.5rem;
   }
 
-  .surprise-btn,
+  .surprise-btn {
+    grid-area: surprise;
+    text-align: center;
+  }
+
+  .theme-btn {
+    grid-area: theme;
+    justify-self: end;
+  }
+
   .kid-btn {
-    flex: 1;
+    grid-area: kid;
     text-align: center;
   }
 
