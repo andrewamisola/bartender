@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Unbounded:wght@500;700&display=swap');
+
+:root {
+  --bg: #06060a;
+  --text: #f5f3ff;
+  --muted: #a39bbd;
+  --accent: #ff7a18;
+  --accent2: #ffd166;
+  --pulse: rgba(255,122,24,0.35);
+  --card: rgba(20,20,30,0.75);
+  --border: rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: radial-gradient(circle at 20% 20%, rgba(255,122,24,0.1), transparent 40%),
+              radial-gradient(circle at 70% 80%, rgba(123,92,255,0.15), transparent 45%),
+              var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.ritual {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0,0,0,0.35), rgba(0,0,0,0.75));
+  pointer-events: none;
+}
+
+section {
+  width: min(720px, 94vw);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sigil {
+  font-family: 'Unbounded', sans-serif;
+  letter-spacing: 6px;
+  color: var(--accent2);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.begin, .draw, .again, .home, .back {
+  font-family: 'Unbounded', sans-serif;
+  background: linear-gradient(135deg, var(--accent), #ff3c8a);
+  border: none;
+  color: #fff;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 12px 35px rgba(255,60,138,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.begin:disabled, .draw:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+.begin:hover, .draw:hover, .again:hover, .home:hover, .back:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 45px rgba(255,60,138,0.45);
+}
+
+.back, .home {
+  margin-top: 1rem;
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.reveal, .destiny {
+  display: none;
+}
+
+.reveal.open, .destiny.open {
+  display: block;
+}
+
+.oracle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.portal {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 40px var(--pulse);
+  position: relative;
+  animation: portalPulse 2.2s ease-in-out infinite;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.portal::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.2);
+}
+
+.spark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 20px var(--accent2);
+  animation: orbit 3s linear infinite;
+}
+
+.spark:nth-child(2) { animation-duration: 3.6s; background: #ff3c8a; }
+.spark:nth-child(3) { animation-duration: 4.4s; background: #7c5cff; }
+
+.shaker {
+  position: relative;
+  width: 90px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  animation: idleShake 2.8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.shaker-top {
+  position: absolute;
+  top: 8px;
+  width: 60px;
+  height: 16px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.shaker-body {
+  position: absolute;
+  top: 18px;
+  width: 70px;
+  height: 70px;
+  border-radius: 18px 18px 24px 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.shaker-cap {
+  position: absolute;
+  top: 78px;
+  width: 52px;
+  height: 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.liquid {
+  position: absolute;
+  bottom: 24px;
+  width: 86px;
+  height: 0;
+  background: linear-gradient(90deg, rgba(255,122,24,0.75), rgba(255,59,138,0.75));
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 0 20px rgba(255,122,24,0.4);
+  opacity: 0;
+  z-index: 0;
+}
+
+.portal.mixing .shaker {
+  animation: mixShake 0.7s ease-in-out infinite;
+}
+
+.portal.mixing .liquid {
+  animation: liquidRise 1.4s ease-in-out forwards;
+  opacity: 1;
+}
+
+.portal.mixing .spark {
+  animation-duration: 1.4s;
+}
+
+.portal.mixing::before {
+  animation: orbitPulse 1.2s ease-in-out infinite;
+}
+
+.ritual-modal {
+  max-width: 680px;
+  margin: 0 auto;
+  animation: rise 0.6s ease both;
+}
+
+.ritual-modal #modalContent {
+  padding: 1.75rem;
+}
+
+.ritual-modal .glass-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ritual-modal .glass-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent2);
+}
+
+.cta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@keyframes portalPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 30px var(--pulse); }
+  50% { transform: scale(1.05); box-shadow: 0 0 60px var(--pulse); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(70px); }
+  to { transform: rotate(360deg) translateX(70px); }
+}
+
+@keyframes idleShake {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-2px); }
+}
+
+@keyframes mixShake {
+  0% { transform: rotate(0deg) translateX(0); }
+  20% { transform: rotate(6deg) translateX(6px); }
+  40% { transform: rotate(-6deg) translateX(-6px); }
+  60% { transform: rotate(5deg) translateX(5px); }
+  80% { transform: rotate(-5deg) translateX(-5px); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+
+@keyframes liquidRise {
+  0% { height: 0; }
+  60% { height: 46px; }
+  100% { height: 58px; }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (min-width: 720px) {
+  .cta { flex-direction: row; justify-content: center; }
+}

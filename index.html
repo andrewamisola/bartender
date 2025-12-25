@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Bartender Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Bartender Recipes</h1>
+            <div class="header-btns">
+                <button class="surprise-btn" id="surpriseBtn">🎲 Surprise Me</button>
+                <button class="kid-btn" id="kidToggle">🧃 Kid Mode</button>
+                <button class="theme-btn" id="themeToggle">☀️</button>
+            </div>
+        </header>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search drinks or ingredients...">
+            <button class="clear-btn" id="clearBtn">×</button>
+        </div>
+        <div class="categories" id="categories">
+            <button class="cat-btn active" data-cat="all">All</button>
+            <button class="cat-btn" data-cat="classic">Classic</button>
+            <button class="cat-btn" data-cat="tiki">Tiki</button>
+            <button class="cat-btn" data-cat="whiskey">Whiskey</button>
+            <button class="cat-btn" data-cat="vodka">Vodka</button>
+            <button class="cat-btn" data-cat="gin">Gin</button>
+            <button class="cat-btn" data-cat="tequila">Tequila</button>
+            <button class="cat-btn" data-cat="rum">Rum</button>
+            <button class="cat-btn" data-cat="mocktails">Mocktails</button>
+            <button class="cat-btn" data-cat="shots">Shots</button>
+            <button class="cat-btn" data-cat="wine">Wine</button>
+        </div>
+        <div class="flavor-bar" id="flavorBar">
+            <div class="flavor-title">Flavor Profiles</div>
+            <div class="flavor-tags" id="flavorTags">
+                <button class="flavor-btn" data-flavor="sweet">Sweet</button>
+                <button class="flavor-btn" data-flavor="tart">Tart</button>
+                <button class="flavor-btn" data-flavor="bitter">Bitter</button>
+                <button class="flavor-btn" data-flavor="smoky">Smoky</button>
+                <button class="flavor-btn" data-flavor="creamy">Creamy</button>
+                <button class="flavor-btn" data-flavor="fruity">Fruity</button>
+                <button class="flavor-btn" data-flavor="herbal">Herbal</button>
+                <button class="flavor-btn" data-flavor="spicy">Spicy</button>
+                <button class="flavor-btn" data-flavor="fizzy">Fizzy</button>
+            </div>
+            <button class="flavor-clear" id="flavorClear">Clear Flavors</button>
+        </div>
+        <div class="stock-bar">
+            <button class="stock-btn" id="stockBtn">🚫 Out of Stock <span id="stockCount"></span></button>
+            <div class="stock-tags" id="stockTags"></div>
+        </div>
+        <div class="stock-panel" id="stockPanel">
+            <div class="stock-panel-header">
+                <h3>What's out of stock?</h3>
+                <button class="stock-close" id="stockClose">×</button>
+            </div>
+            <p class="stock-hint">Tap ingredients you've run out of. Drinks with these will be hidden.</p>
+            <div class="stock-grid" id="stockGrid"></div>
+            <button class="stock-clear" id="stockClear">Clear All</button>
+        </div>
+        <div class="count" id="count">0 recipes</div>
+        <main class="grid" id="grid"></main>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <div class="modal" id="modal">
+            <div class="modal-box">
+                <button class="close-btn" id="closeBtn">×</button>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+    <script src="recipes.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

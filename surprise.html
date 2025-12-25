@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Tonight's Ritual</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="surprise.css">
+</head>
+<body>
+  <main class="ritual">
+    <div class="veil"></div>
+    <section class="intro" id="intro">
+      <p class="sigil">✦ ✦ ✦</p>
+      <h1>Tonight, we begin the ritual.</h1>
+      <p class="lead">A drink will be chosen. A story will be told. Your night takes a turn.</p>
+      <button class="begin" id="beginBtn">Begin the Ceremony</button>
+      <button class="back" id="backBtn">← Back to recipes</button>
+    </section>
+
+    <section class="reveal" id="reveal" aria-hidden="true">
+      <p class="oracle">The bar whispers…</p>
+      <div class="portal" id="portal">
+        <div class="shaker">
+          <div class="shaker-top"></div>
+          <div class="shaker-body"></div>
+          <div class="shaker-cap"></div>
+        </div>
+        <div class="liquid" id="liquid"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+      </div>
+      <button class="draw" id="drawBtn">Choose Your Drink</button>
+    </section>
+
+    <section class="destiny" id="destiny" aria-hidden="true">
+      <div class="modal-box ritual-modal">
+        <button class="close-btn" id="ritualClose">×</button>
+        <div id="modalContent"></div>
+      </div>
+      <div class="cta">
+        <button class="again" id="againBtn">Roll the Ritual Again</button>
+        <button class="home" id="homeBtn">Back to recipes</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="recipes.js"></script>
+  <script src="surprise.js"></script>
+</body>
+</html>
