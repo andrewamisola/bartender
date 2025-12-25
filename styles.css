@@ -612,32 +612,23 @@ body.kid-mode .tag {
   .header-btns {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 44px;
-    grid-template-areas:
-      "surprise theme"
-      "kid kid";
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
   }
 
-  .surprise-btn {
-    grid-area: surprise;
+  .surprise-btn,
+  .kid-btn,
+  .theme-btn {
+    width: 100%;
     text-align: center;
+    justify-content: center;
   }
 
   .theme-btn {
-    grid-area: theme;
-    justify-self: end;
-  }
-
-  .kid-btn {
-    grid-area: kid;
-    text-align: center;
-  }
-
-  .theme-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
+    height: auto;
+    border-radius: 999px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
   }
 
   .search-box {
