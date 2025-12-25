@@ -596,6 +596,129 @@ body.kid-mode .tag {
 @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); max-width: 1200px; margin: 0 auto; } }
 
+/* Mobile-first adjustments */
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.25rem;
+  }
+
+  .header-btns {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .surprise-btn,
+  .kid-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .theme-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .search-box {
+    padding: 0.85rem 1rem;
+  }
+
+  .search-box input {
+    padding: 0.85rem 2.75rem 0.85rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .clear-btn {
+    right: 1.35rem;
+  }
+
+  .categories {
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .cat-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .flavor-bar {
+    padding: 0.75rem 1rem;
+  }
+
+  .flavor-tags {
+    gap: 0.4rem;
+  }
+
+  .flavor-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .stock-bar {
+    padding: 0.6rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .count {
+    padding: 0.85rem 1rem;
+  }
+
+  .grid {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+  }
+
+  .card-img {
+    height: 160px;
+  }
+
+  .modal-box {
+    margin: 0.75rem;
+  }
+
+  .modal-img {
+    height: 200px;
+  }
+
+  #modalContent {
+    padding: 1.25rem;
+  }
+
+  #modalContent h2 {
+    font-size: 1.4rem;
+  }
+
+  #modalContent li {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .meta {
+    grid-template-columns: 1fr;
+  }
+
+  .stock-panel {
+    padding: 1.1rem;
+    max-height: 80vh;
+  }
+}
+
 /* Cards with Images */
 .card {
   background: var(--card);
